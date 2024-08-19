@@ -1,10 +1,9 @@
 const mongoose = require('mongoose');
 
 const countrySchema = new mongoose.Schema({
-  name: { type: String, required: true },
-  code: { type: String, required: true, unique: true },
+    name: { type: String, required: true },
+    isoCode: { type: String, required: true, unique: true },
+    phoneCode: { type: String, required: true } // إضافة كود الهاتف الدولي
 });
 
-const Country = mongoose.model('Country', countrySchema);
-
-module.exports = Country;
+module.exports = mongoose.model('Country', countrySchema);

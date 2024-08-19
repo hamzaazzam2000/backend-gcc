@@ -1,14 +1,14 @@
+// ملف منفصل مثل db.js أو ضمن index.js
 const mongoose = require('mongoose');
 
 const connectDB = async () => {
-  try {
-    const conn = await mongoose.connect(process.env.MONGO_URI); // إزالة الخيارات القديمة
-
-    console.log(`MongoDB Connected: ${conn.connection.host}`);
-  } catch (error) {
-    console.error(`Error: ${error.message}`);
-    process.exit(1); // إنهاء العملية مع فشل
-  }
+    try {
+        await mongoose.connect('mongodb+srv://hamzamaged2742000:ftAvdjja5eZRHnyo@gcc.wcggl.mongodb.net/?retryWrites=true&w=majority&appName=GCC');
+        console.log('MongoDB Connected');
+    } catch (err) {
+        console.error('Error connecting to MongoDB', err);
+        process.exit(1);
+    }
 };
 
 module.exports = connectDB;
